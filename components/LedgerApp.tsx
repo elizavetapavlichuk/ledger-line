@@ -72,7 +72,7 @@ export default function LedgerApp({
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-4.5 font-mono text-[12.5px] text-ink-dim">
+        <div className="flex flex-wrap items-center gap-x-4.5 gap-y-2 font-mono text-[12.5px] text-ink-dim">
           <label className="flex items-center gap-1.5 text-[11px] uppercase tracking-[0.06em]">
             Currency
             <select
