@@ -37,9 +37,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# ledger database (local, per-machine)
-/data
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts

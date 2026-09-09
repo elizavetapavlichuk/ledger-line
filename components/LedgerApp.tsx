@@ -21,9 +21,11 @@ export default function LedgerApp({
 
   // Formatted client-side only: Node's Intl output for the same locale
   // can differ subtly from the browser's, which would otherwise trip a
-  // hydration mismatch on this text.
+  // hydration mismatch on this text. Deliberately deferred to an effect
+  // rather than derived at render time, for that reason.
   const [today, setToday] = useState("");
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing from the browser's own Intl output, not derivable during SSR render
     setToday(new Date().toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }));
   }, []);
 

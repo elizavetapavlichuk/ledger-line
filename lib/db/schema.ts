@@ -1,7 +1,7 @@
-import { sqliteTable, text, real, integer } from "drizzle-orm/sqlite-core";
+import { pgTable, text, real, integer } from "drizzle-orm/pg-core";
 
-export const transactions = sqliteTable("transactions", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
+export const transactions = pgTable("transactions", {
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
   amount: real("amount").notNull(),
   type: text("type", { enum: ["expense", "income"] }).notNull(),
   category: text("category").notNull(),
@@ -10,14 +10,14 @@ export const transactions = sqliteTable("transactions", {
   createdAt: text("created_at").notNull(),
 });
 
-export const messages = sqliteTable("messages", {
+export const messages = pgTable("messages", {
   id: text("id").primaryKey(),
   role: text("role", { enum: ["user", "assistant", "system"] }).notNull(),
   parts: text("parts").notNull(), // JSON-encoded UIMessage["parts"]
   createdAt: text("created_at").notNull(),
 });
 
-export const settings = sqliteTable("settings", {
+export const settings = pgTable("settings", {
   key: text("key").primaryKey(),
   value: text("value").notNull(),
 });
