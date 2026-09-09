@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3f2e9;
+  --paper-2: #eae8db;
+  --paper-3: #e1e0cf;
+  --ink: #1d231e;
+  --ink-dim: #5c6559;
+  --ink-faint: #8b9285;
+  --rule: #ccc9b8;
+  --rule-strong: #a9a68f;
+  --accent: #1f4d40;
+  --accent-2: #2c6753;
+  --accent-soft: #dde5da;
+  --accent-ink: #f3f2e9;
+  --expense: #a1432c;
+  --income: #5c7d34;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14180f;
+    --paper-2: #1b2016;
+    --paper-3: #23281d;
+    --ink: #e9e7d8;
+    --ink-dim: #a4ab98;
+    --ink-faint: #707768;
+    --rule: #343b2c;
+    --rule-strong: #454d3a;
+    --accent: #7fc2a8;
+    --accent-2: #9bd4bc;
+    --accent-soft: #24332a;
+    --accent-ink: #0f1710;
+    --expense: #e0916f;
+    --income: #a9c96f;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-expense: var(--expense);
+  --color-income: var(--income);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 34px,
+    var(--rule) 34px,
+    var(--rule) 35px
+  );
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display), Georgia, serif;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bubble-in {
+  animation: rise 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble-in {
+    animation: none;
+  }
+}
+
+.chat-log::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-log::-webkit-scrollbar-thumb {
+  background: var(--rule-strong);
+  border-radius: 4px;
+}
